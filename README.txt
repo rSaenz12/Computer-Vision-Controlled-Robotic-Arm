@@ -40,6 +40,9 @@ Files in Directory:
     /Images
         -images of the project
 
+    /Videos
+        -videos of the project
+
 Requirements:
     Software
         -WSL2(Ubuntu)
@@ -63,4 +66,8 @@ Key Commands:
      g : Start servos
      h : Stop servos
      q : Quit and capture screenshot
+
+
+Object Tracking
+https://github.com/rSaenz12/Computer-Vision-Controlled-Robotic-Arm/blob/main/Videos/Object%20Tracking.MOV
 
