@@ -65,7 +65,17 @@ Key Commands:
      q : Quit and capture screenshot
 
 
-Object Tracking
+Object Tracking:
+    https://www.youtube.com/shorts/TieoZ9m9i2k
+
+Measurement Calibration:
+    https://www.youtube.com/watch?v=YCSCBNP9UDA
+
+Arm and Computer Vision in Action:
+    https://www.youtube.com/watch?v=p-L_sB9tbA0
+    https://www.youtube.com/watch?v=rt97vcxNaTM
+    
+
 
 
 
