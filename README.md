@@ -69,7 +69,9 @@ Key Commands:
 
 
 Object Tracking
+
+
 <div align="center">
-  <video src="https://github.com/rSaenz12/Computer-Vision-Controlled-Robotic-Arm/raw/main/Videos/Object%20Tracking.mp4" width="100%" autoplay loop muted>
+  <video src="Videos/Object%20Tracking.mp4" width="100%" autoplay loop muted playsinline>
   </video>
 </div>
