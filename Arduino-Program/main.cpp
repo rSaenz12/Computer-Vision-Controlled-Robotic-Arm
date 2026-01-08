@@ -1,3 +1,9 @@
+//********************************************
+// Author: Russell Saenz
+// File: main.cpp
+// Description: Main loop handles codes sent from CV program
+//********************************************
+
 #include <Arduino.h>
 #include <LCDTools.h>
 #include <armMovement.h>

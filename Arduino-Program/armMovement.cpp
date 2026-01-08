@@ -1,3 +1,11 @@
+//********************************************
+// Author: Russell Saenz
+// File: armMovement.cpp
+// Description: Handles the math required for finding desired angles of the joints.
+//       Uses delay to slow arm movement rather than millis because there is no alternate
+//      tasks, so delay isnt blocking functionality.
+//********************************************
+
 #include "armMovement.h"
 #include <LCDTools.h>
 #include <math.h>

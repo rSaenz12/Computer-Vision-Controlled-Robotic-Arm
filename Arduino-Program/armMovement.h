@@ -1,6 +1,8 @@
-//
-// Created by Rusty on 1/2/2026.
-//
+//********************************************
+// Author: Russell Saenz
+// File: armMovement.h
+// Description: Declares constants used in the calculations, also Servo and Grid structs.
+//********************************************
 
 #pragma once
 

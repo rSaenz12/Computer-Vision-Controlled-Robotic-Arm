@@ -1,10 +1,14 @@
-//
-// Created by Rusty on 1/2/2026.
-//
+//********************************************
+// Author: Russell Saenz
+// File: LCDTools.cpp
+// Description: Functions for dislaying messages on the LCD
+//********************************************
+
 #include <wire.h>
 #include <LiquidCrystal_I2C.h>
 #include "LCDTools.h"
 
+//declaring the lcd object
 LiquidCrystal_I2C lcd(0x27, 16,2);
 
 uint8_t messageTimer = 5;

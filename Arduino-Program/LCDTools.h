@@ -1,6 +1,9 @@
-//
-// Created by Rusty on 1/2/2026.
-//
+//********************************************
+// Author: Russell Saenz
+// File: LCDTools.h
+// Description: Defines NO_NUMBER, DEBUG_LCD and the functions for the LCD.
+//********************************************
+
 #pragma once
 
 #include <Arduino.h>
