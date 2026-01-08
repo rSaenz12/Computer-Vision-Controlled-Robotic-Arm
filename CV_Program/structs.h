@@ -1,6 +1,6 @@
 //********************************************
 // Author: Russell Saenz
-// File: inputHandling.h
+// File: structs.h
 // Description: Declares Cell, Object, and Calibration structs. Also declares gridRows and gridColumns
 //********************************************
 
