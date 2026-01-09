@@ -35,7 +35,7 @@ Files in Directory:
         -structs.h/cpp
 
 
-    /Arduino Program (developed on PlatformIO, Resource Usage: ~11.1KB Flash Storage, ~800 bytes SRAM)
+    /Arduino Program (developed on PlatformIO, Resource Usage: ~11KB Flash Storage, ~500 bytes SRAM)
         -main.cpp
         -armMovement.h/cpp
         -LCDTools.h/cpp
@@ -77,3 +77,4 @@ Measurement Calibration:
 Arm and Computer Vision in Action:
     https://www.youtube.com/watch?v=p-L_sB9tbA0
     https://www.youtube.com/watch?v=rt97vcxNaTM
+
