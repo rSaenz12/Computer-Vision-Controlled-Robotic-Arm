@@ -35,9 +35,9 @@ void calibrateCamera() {
 }
 
 //initializing the servos and their charictaristics
-ServoStruct baseServo("baseServo", 3, 90, 180, 0, false);
-ServoStruct armServo1("armServo1", 5, 0, 45, 0, false);
-ServoStruct armServo2("armServo2", 6, 0, 180, 0, true);
+ServoStruct baseServo(3, 90, 180, 0, false);
+ServoStruct armServo1(5, 0, 45, 0, false);
+ServoStruct armServo2(6, 0, 180, 0, true);
 
 void setupArm() {
     if (!armIsOn) {
@@ -78,7 +78,7 @@ void ServoStruct::moveTo(uint8_t targetAngle) {
     if (targetAngle > maxAngle) {
         targetAngle = maxAngle;
 
-        printToScreen("TARGET > MAX", targetAngle, messageTimer);
+        printToScreen(F("TARGET > MAX"), targetAngle, messageTimer);
     }
 
     //needed to mount a servo in reverse, this fixes its movement issues
@@ -150,24 +150,23 @@ void calibrate() {
 
 // finds the arm angle based on distance
  void extendArmToDistance(const double distance, bool autoReturnHome) {
-     printToScreen("DISTANCE RECEIVED: ", distance, messageTimer);
+     printToScreen(F("DISTANCE RECEIVED: "), distance, messageTimer);
 
      //** FINDING NEEDED TRIANGLE **
 
      //a^2 + b^2 = c^2
-     // double hypotenuse = sqrt(pow(distance,2) + pow(armPlatformHeight*armPlatformHeight,2));
-     const double hypotenuse = sqrt(
-         (distance) * (distance) + platformHeight * platformHeight);
+    const double hypotenuse = sqrt(
+         (distance * distance) + platformHeight * platformHeight);
 
-     constexpr double armSegment1Height = 20.0;
-     // constexpr double armSegment2Height = 20.5;
+    constexpr double armSegment1Height = 20.0;
+
     constexpr double armSegment2Height = 20.5;
 
-     double cosineArm1 = (pow(armSegment1Height, 2) + pow(hypotenuse, 2) - pow(armSegment2Height, 2)) /
-                         (2.0 * armSegment1Height * hypotenuse);
+    double cosineArm1 = ((armSegment1Height * armSegment1Height) + (hypotenuse * hypotenuse) - (armSegment2Height * armSegment2Height)) /
+                    (2.0 * armSegment1Height * hypotenuse);
 
-     double cosineArm2 = (pow(armSegment1Height, 2) + pow(armSegment2Height, 2) - pow(hypotenuse, 2)) /
-                         (2.0 * armSegment1Height * armSegment2Height);
+    double cosineArm2 = ((armSegment1Height * armSegment1Height) + (armSegment2Height * armSegment2Height) - (hypotenuse * hypotenuse)) /
+                    (2.0 * armSegment1Height * armSegment2Height);
 
      cosineArm1 = constrain(cosineArm1, -1.0, 1.0);
      cosineArm2 = constrain(cosineArm2, -1.0, 1.0);
@@ -175,10 +174,10 @@ void calibrate() {
      const uint8_t armServo1Angle = static_cast<uint8_t>(abs(90 - (180 * acos(cosineArm1) / M_PI)));
      const uint8_t armServo2Angle = static_cast<uint8_t>(abs(180 * acos(cosineArm2) / M_PI));
 
-     printToScreen("Calculating servo values", NO_NUMBER, messageTimer);
-     printToScreen("Hypotenuse: ", hypotenuse, messageTimer);
-     printToScreen("ARM 1: ", armServo1Angle, messageTimer);
-     printToScreen("ARM 2: ", armServo2Angle, messageTimer);
+     printToScreen(F("Calculating servo values"), NO_NUMBER, messageTimer);
+     printToScreen(F("Hypotenuse: "), hypotenuse, messageTimer);
+     printToScreen(F("ARM 1: "), armServo1Angle, messageTimer);
+     printToScreen(F("ARM 2: "), armServo2Angle, messageTimer);
 
     //had to avoid hitting an overhead camera
     //decided to break the movements into 2 step process
@@ -199,7 +198,7 @@ void calibrate() {
  }
 
 void swivelBaseToAngle(uint8_t angle, bool autoReturnHome) {
-    printToScreen("Moving base to ", angle, messageTimer);
+    printToScreen(F("Moving base to "), angle, messageTimer);
 
     baseServo.moveTo(angle);
 
@@ -233,9 +232,9 @@ void Grid::findTriangle(const double distanceFromLeft, const double distanceFrom
     //converts radians to degrees
     baseServoAngle = 180.0 * baseServoAngle / M_PI;
 
-    printToScreen("TARGET DISTANCE: ", targetDistance, messageTimer);
+    printToScreen(F("TARGET DISTANCE: "), targetDistance, messageTimer);
 
-    printToScreen("BASE ANGLE: ", baseServoAngle, messageTimer);
+    printToScreen(F("BASE ANGLE: "), baseServoAngle, messageTimer);
 
     extendArmToDistance(targetDistance, false);
 
@@ -271,10 +270,10 @@ void parseForMovements() {
     const double targetDistanceFromBottom = Serial.parseFloat();
 
     //debugging messages on lcd/ in console
-    printToScreen("DISTANCE FROM LEFT: ", distanceFromLeft, messageTimer);
-    printToScreen("DISTANCE FROM BOTTOM: ", distanceFromBottom, messageTimer);
-    printToScreen("COLUMN: ", targeDistanceFromLeft, messageTimer);
-    printToScreen("ROW: ", targetDistanceFromBottom, messageTimer);
+    printToScreen(F("DISTANCE FROM LEFT: "), distanceFromLeft, messageTimer);
+    printToScreen(F("DISTANCE FROM BOTTOM: "), distanceFromBottom, messageTimer);
+    printToScreen(F("COLUMN: "), targeDistanceFromLeft, messageTimer);
+    printToScreen(F("ROW: "), targetDistanceFromBottom, messageTimer);
 
 
     //moving to where object is now
@@ -298,17 +297,10 @@ void parseForMovements() {
     returnAllHome();
 
     delay(pause);
-
-    //**********************
-    //NOT WORKING REMOVE OR FIX
-    //************************
-
-    //signals the openCV program that the arm is done moving
-    Serial.println("z");
 }
 
 void returnAllHome() {
-    printToScreen("Returning all home", NO_NUMBER, messageTimer);
+    printToScreen(F("Returning all home"), NO_NUMBER, messageTimer);
 
     baseServo.returnHome();
     delay(pause);
@@ -319,7 +311,7 @@ void returnAllHome() {
 
 void stopAllServos() {
     if (armIsOn) {
-        printToScreen("Stopping all servos", NO_NUMBER, messageTimer);
+        printToScreen(F("Stopping all servos"), NO_NUMBER, messageTimer);
 
         baseServo.stopServo();
         delay(pause);

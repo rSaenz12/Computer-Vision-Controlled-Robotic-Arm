@@ -48,8 +48,6 @@ struct Grid {
 struct ServoStruct {
     Servo servo;
 
-    const char *name;
-
     uint8_t pin;
 
     uint8_t homeAngle;
@@ -58,9 +56,9 @@ struct ServoStruct {
 
     bool reversed = false;
 
-    ServoStruct(const char *name, const uint8_t pin, const uint8_t homeAngle, const uint8_t maxAngle,
+    ServoStruct(const uint8_t pin, const uint8_t homeAngle, const uint8_t maxAngle,
                 const uint8_t minAngle,
-                const bool reversed) : name(name), pin(pin), homeAngle(homeAngle), maxAngle(maxAngle),
+                const bool reversed) : pin(pin), homeAngle(homeAngle), maxAngle(maxAngle),
                                        minAngle(minAngle), reversed(reversed) {
     }
 

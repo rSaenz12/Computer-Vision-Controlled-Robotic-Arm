@@ -19,4 +19,4 @@ void setupLCD();
 
 void setScreen();
 
-void printToScreen(const char *message, float number, uint8_t messageDuration);
+void printToScreen(const __FlashStringHelper *message, float number, uint8_t messageDuration);

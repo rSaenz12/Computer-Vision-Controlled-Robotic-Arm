@@ -24,7 +24,7 @@ void setupLCD() {
 
 //if message duration ==0, then it displays until the next print
 //message duration is also sent in seconds
-void printToScreen(const char *message,const float number, const uint8_t messageDuration) {
+void printToScreen(const __FlashStringHelper *message,const float number, const uint8_t messageDuration) {
     Serial.println(message);
     if (number>NO_NUMBER) {
         Serial.println(number);
@@ -64,8 +64,5 @@ void printToScreen(const char *message,const float number, const uint8_t message
 
 
 void setScreen() {
-
-    printToScreen("Enter q, c, f,  m, l, a, h, or g", NO_NUMBER, 0);
-
-
+    printToScreen(F("Enter q, c, f,  m, l, a, h, or g"), NO_NUMBER, 0);
 }
