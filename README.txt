@@ -1,7 +1,8 @@
-***Computer Vision Robotic Arm Control***
+***Computer Vision Controlled Robotic Arm***
 
 AUTHOR: Russell Saenz
 Contact: rsaenz12@islander.tamucc.edu
+Project Duration: 19 days
 
 Languages: C++
 
@@ -14,6 +15,8 @@ Libraries:
         -LiquidCrystal_I2C
 
 Description:
+    This project was developed in a rapid 19 day time frame due to a shortened winter break.
+
     This program is a computer vision program that employs an overhead camera to locate an object on a virtual grid.
     After an object is located, the object can be virtually measured, or moved via a robotic arm controlled by an Arduino.
     The Arduino is sent coordinates of the objects location and target location from the program.
@@ -32,7 +35,7 @@ Files in Directory:
         -structs.h/cpp
 
 
-    /Arduino Program (developed on PlatformIO)
+    /Arduino Program (developed on PlatformIO, Resource Usage: ~11.1KB Flash Storage, ~800 bytes SRAM)
         -main.cpp
         -armMovement.h/cpp
         -LCDTools.h/cpp
@@ -64,3 +67,13 @@ Key Commands:
      h : Stop servos
      q : Quit and capture screenshot
 
+
+Object Tracking:
+    https://www.youtube.com/shorts/TieoZ9m9i2k
+
+Measurement Calibration:
+    https://www.youtube.com/watch?v=YCSCBNP9UDA
+
+Arm and Computer Vision in Action:
+    https://www.youtube.com/watch?v=p-L_sB9tbA0
+    https://www.youtube.com/watch?v=rt97vcxNaTM
