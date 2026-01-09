@@ -77,11 +77,3 @@ Measurement Calibration:
 Arm and Computer Vision in Action:
     https://www.youtube.com/watch?v=p-L_sB9tbA0
     https://www.youtube.com/watch?v=rt97vcxNaTM
-    
-
-
-
-
-
-
-
