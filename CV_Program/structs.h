@@ -13,29 +13,28 @@ constexpr int gridRows = 3;
 constexpr int gridColumns = 3;
 
 struct Cell {
+    cv::Point2i coordinate = cv::Point2i(0, 0);
+    cv::Point2i centerCoordinates = cv::Point2i(0, 0);
+
     int topLeftX = 0;
     int topLeftY = 0;
 
     int width = 0;
     int height = 0;
-
-    cv::Point2i coordinate = cv::Point2i(0, 0);
-    cv::Point2i centerCoordinates = cv::Point2i(0, 0);
 };
 
 struct Object {
-    bool objectFound = false;
-
-    bool locationFound = false;
-
-    int width = 0;
-    int height = 0;
-
     cv::Point2i center = cv::Point2i(0, 0);
 
     cv::Point2i topLeft = cv::Point2i(0, 0);
     cv::Point2i bottomRight = cv::Point2i(0, 0);
     cv::Point2i currentLocation = cv::Point2i(0, 0);
+
+    int width = 0;
+    int height = 0;
+
+    bool objectFound = false;
+    bool locationFound = false;
 
     void padRectangle(int pixels);
 
