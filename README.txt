@@ -78,3 +78,7 @@ Arm and Computer Vision in Action:
     https://www.youtube.com/watch?v=p-L_sB9tbA0
     https://www.youtube.com/watch?v=rt97vcxNaTM
 
+                    ****Separate remarks****
+-My name is Majid Saeed, and I helped Russell out with the project by
+designing the power delivery for the servo motors/Arduino, and helped
+with very basic debugging.
