@@ -212,7 +212,7 @@ void swivelBaseToAngle(uint8_t angle, bool autoReturnHome) {
 void Grid::findTriangle(const double distanceFromLeft, const double distanceFromBottom) {
     bool moveRight = false;
     double legX;
-    //since the math to get the base angle is a triangle, direction was haerto grasp.
+    //since the math to get the base angle is a triangle, direction was hard to grasp.
     //this allows left or right swivel depending on which side of th center the triangle is on
     if (distanceFromLeft > width/2) {
         legX =  distanceFromLeft - width/2 ;
